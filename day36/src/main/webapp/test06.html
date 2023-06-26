@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>갤러리 프로젝트</title>
+<style>
+	#wrap {
+	width: 150px;
+	height: 150px;
+	}
+	#wrap .page {
+		text-align: right;
+		margin: 10px;
+	}
+	#wrap .photo {
+		border: 1px solid gray;
+		width: 150px;
+		height: 150px;
+		overflow: hidden;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+	
+<script>
+	$(document).ready(function(){
+		var total = $('.photo > div').length;
+		var num = 1;
+		$('.pageInfo > span:first').text(num);
+		$('.pageInfo > span:last').text(total);
+		
+		$('.prev').click(function(){
+			num--;
+			$('.photo div:last').insertBefore('.photo div:first');
+			if(num<1){
+				num=total;
+			}
+			$('.pageInfo > span:first').text(num);
+		});
+		$('.next').click(function(){
+			num++;
+			$('.photo div:first').insertAfter('.photo div:last');
+			if(num>total){
+				num=1;
+			}
+			$('.pageInfo > span:first').text(num);
+		});
+	})
+</script>
+</head>
+<body>
+
+	<div id="wrap">
+		<div class="page">
+			<span class="pageInfo"> <span></span> / <span></span>
+			</span>
+			<button class="prev">&lt;</button>
+			<button class="next">&gt;</button>
+		</div>
+		<div class="photo">
+			<div>
+				<img alt="img01" src="images/dice01.png">
+			</div>
+			<div>
+				<img alt="img02" src="images/dice02.png">
+			</div>
+			<div>
+				<img alt="img03" src="images/dice03.png">
+			</div>
+			<div>
+				<img alt="img04" src="images/dice04.png">
+			</div>
+			<div>
+				<img alt="img05" src="images/dice05.png">
+			</div>
+			<div>
+				<img alt="img06" src="images/dice06.png">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

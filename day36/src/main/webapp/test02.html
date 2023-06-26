@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가위바위보 게임!</title>
+<style>
+	#title{
+		width: 600px;
+		height: 30px;
+		margin: 5px;
+		background-color: lightcoral;
+		cursor: pointer;
+		line-height: 30px;
+		text-align: center;
+	}
+	#content {
+		width: 600px;
+		height: 200px;
+		margin: 5px;
+		background-color: lemonchiffon;
+	}
+	span, img {
+		width: 160px;
+		height: 160px;
+		padding: 5px;
+		margin: 5px;
+		align-items: center;
+		object-fit: contain;
+	}
+</style>
+</head>
+<body>
+
+<div id="title">게 임 시 작</div>
+<div id="content">
+   <span>COM</span>
+   <img id='com' alt="COM 이미지" src="images/rock.png">
+   <span>ME</span>
+   <img id='me' alt="ME 이미지" src="images/rock.png">
+</div>
+
+<script>
+	document.querySelector('#title').onclick = function(){
+		if(this.firstChild.nodeValue =='게 임 시 작'){
+				this.firstChild.nodeValue ='결 과 확 인';
+				this.style.backgroundColor = 'deeppink';
+				
+				play();
+			}
+			else{
+				this.firstChild.nodeValue ='게 임 시 작';
+				this.style.backgroundColor = 'lightcoral';
+				
+				stop();
+			}
+	};
+	
+	
+	function play(){
+			document.querySelector('#com').src='images/가위바위보.gif';
+			document.querySelector('#me').src='images/가위바위보.gif';
+	}
+	function stop(){
+		var res =['rock','scissors','paper'];
+		var comRes = res[Math.floor(Math.random()*res.length)];
+		var meRes = res[Math.floor(Math.random()*res.length)];
+		
+		//console.log(comRes);
+		//console.log(meRes);
+			document.querySelector('#com').src='images/'+comRes+'.png';
+			document.querySelector('#me').src='images/'+meRes+'.png';
+		
+		
+		setTimeout(function(){
+		if(meRes===comRes){
+			alert('무승부!');
+		}
+		else if((meRes==='rock' && comRes==='scissors')||(meRes==='scissors' && comRes==='paper')||(meRes==='paper' && comRes==='rock')){
+			alert('이김!');
+		}
+		else {
+			alert('졌음!');			
+		}
+			
+		},300);
+	}
+</script>
+
+
+
+</body>
+</html>

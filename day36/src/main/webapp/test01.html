@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 최종 실습 예제</title>
+
+<style>
+	#title{
+		width: 450px;
+		height: 30px;
+		margin: 5px;
+		background-color: lightcoral;
+		cursor: pointer;
+		line-height: 30px;
+		text-align: center;
+	}
+	#content {
+		width: 450px;
+		height: 150px;
+		margin: 5px;
+		background-color: lemonchiffon;
+	}
+	span, img {
+		margin: 5px;
+	}
+</style>
+</head>
+<body>
+
+<div id="title">게 임 시 작</div>
+<div id="content">
+   <span>COM</span>
+   <img id='com' alt="COM 이미지" src="images/dice01.png">
+   <span>ME</span>
+   <img id='me' alt="ME 이미지" src="images/dice01.png">
+</div>
+
+<script>
+		document.querySelector('#title').onclick = function(){
+			if(this.firstChild.nodeValue =='게 임 시 작'){
+				this.firstChild.nodeValue ='결 과 확 인';
+				this.style.backgroundColor = 'deeppink';
+				
+				play();
+			}
+			else{
+				this.firstChild.nodeValue ='게 임 시 작';
+				this.style.backgroundColor = 'lightcoral';
+				
+				stop();
+			}
+		}
+		
+		function play(){
+			document.querySelector('#com').src='images/dice.gif';
+			document.querySelector('#me').src='images/dice.gif';
+		}
+		
+		
+		function stop(){
+			var comNum=Math.floor(Math.random()*6)+1;
+			var meNum=Math.floor(Math.random()*6)+1;
+			
+			document.querySelector('#com').src='images/dice0'+comNum+'.png';
+			document.querySelector('#me').src='images/dice0'+meNum+'.png';
+		
+			setTimeout(function(){
+				
+				if(meNum>comNum){
+					alert('이김!');
+				}
+				else if(meNum==comNum){
+					alert('무승부!');
+				}
+				else {
+					alert('패배');
+				}
+				
+				
+			},1000);
+			
+		}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

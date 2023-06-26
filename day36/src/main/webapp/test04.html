@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div,ul,li {
+	margin: 5px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#header').css("border","1px solid black");
+		$('ul > li').css("border","3px solid green");
+		$('.gnb').css("backgroundColor","pink");
+		$('li[class="test"]').css("background","gray");
+	});
+</script>
+</head>
+<body>
+	<div id="header">
+		<div id="logo">로고</div>
+		<div>공지사항</div>
+	</div>
+
+	<div class="gnb">
+		<ul>
+			<li>메뉴 1
+				<ul>
+					<li>하위메뉴 1</li>
+					<li>하위메뉴 2</li>
+				</ul>
+			</li>
+			<li class="test">메뉴 2</li>
+			<li>메뉴 3</li>
+			<li>메뉴 4</li>
+		</ul>
+	</div>
+
+
+</body>
+</html>

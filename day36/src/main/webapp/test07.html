@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+		$('.box').mouseover(function(){
+				$('.result').append('<p>마우스 오버</p>');
+		});
+	});
+	
+</script>
+	
+<style>
+	.box {
+		background-color: pink;
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+	}	
+</style>
+</head>
+<body>
+
+<div class="box">mouseover</div>
+
+<hr>
+
+<div class="result"></div>
+
+</body>
+</html>

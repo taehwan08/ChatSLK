@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예제 마지막</title>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
+<script>
+			$(document).ready(function(){
+				$('.hidden').click(function(){
+					$('#box').attr("style", "display: none");
+				});
+				$('.show').click(function(){
+					$('#box').removeAttr("style > display");
+				});
+				$('.toggle').click(function(){
+					var styleVal = $('#box').attr("style");
+					console.log(styleVal);
+					
+					if(styleVal==='display: none'){
+						$('#box').removeAttr("style > display");
+					}else{
+						$('#box').attr("style", "display: none");
+					}
+				});
+			});		
+		
+		
+</script>	
+
+<style>
+	#box {
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		background-color: lightpink;
+		margin: 24px;
+	}
+	
+</style>
+
+</head>
+<body>
+
+<button class="hidden" type="button">삭제</button>
+<button class="show" type="button">생성</button>
+<button class="toggle" type="button">토글</button>
+
+<div id="box">BOX</div>
+
+</body>
+</html>
